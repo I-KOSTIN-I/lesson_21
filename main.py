@@ -9,8 +9,18 @@ if __name__ == '__main__':
     store.add('собачки', 4)
     store.add('коробки', 5)
 
+    shop.add('печеньки', 3)
+    shop.add('собачки', 4)
+    shop.add('коробки', 5)
+    shop.add('елки', 1)
+    shop.add('мячи', 1)
+    shop.add('куклы', 5)
+
     print('На складе')
     print(store.get_items())
+
+    print('В магазине')
+    print(shop.get_items())
 
     user_input = input('Введите данные в таком формате: "Доставить 3 собачки из склад в магазин": \n')
     data_request = Request(user_input)

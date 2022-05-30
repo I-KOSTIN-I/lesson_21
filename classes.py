@@ -55,9 +55,9 @@ class Store(Storage):
             if self.items[name] >= count:
                 print('Есть нужное количество')
                 self.items[name] = self.items[name] - count
+                return True
             else:
                 print(f'Неверное количество товара. Максимум -  {self.get_free_space()}')
-                return True
         else:
             print('Такого товара нет')
         return False
@@ -86,11 +86,12 @@ class Shop(Store):
 
     def add(self, name, count):
         """(<название>, <количество>)  - увеличивает запас items с учетом лимита capacity"""
-        if self.get_unique_items_count() < self.unique_count:
+        if self.get_unique_items_count() + 1 <= self.unique_count:
             super().add(name, count)
+            return True
         else:
             print(f'Не хватает места для хранения. В Shop хранится не больше {self.unique_count} разных товаров')
-        return False
+            return False
 
 
 class Request:
